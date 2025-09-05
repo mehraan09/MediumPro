@@ -1,34 +1,35 @@
-name : PR handle
+name: PR handle
 
 on: 
   pull_request:
-   branches:
-    - main 
-
+    branches:
+      - main
 
 jobs:
   build:
-    runs-on: ubuntu_latest
-    steps:
-    - uses:  actions/checkout@v3
+    runs-on: ubuntu-latest
 
-    - name: Use Node.js
-      uses: actions/setup-node@v3
-      with:
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
           node-version: '20'
 
-    - name: Install frontend Dependencies
-      working-directory : frontend
-      run: npm install
+      - name: Install frontend dependencies
+        working-directory: frontend
+        run: npm install
     
-    - name: Install backend Dependencies
-      working-directory : backend
-      run: npm install
+      - name: Install backend dependencies
+        working-directory: backend
+        run: npm install
 
-    - name: Run frontend Build
-      working-directory : frontend
-      run: npm run build
+      - name: Build frontend
+        working-directory: frontend
+        run: npm run build
 
-    - name: Run backend Build
-      working-directory : backend
-      run: npm run build
+      - name: Build backend
+        working-directory: backend
+        run: npm run build
+
