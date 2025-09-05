@@ -1,14 +1,12 @@
-
 export const Quote= ()=>{
   return (
     <>
-   <div><h4 className="text-2xl font-bold ">Welcome to the Portal , Quote is here .</h4>
-     <b>author ,</b>
-     <h6 className="underline decoration-sky-500 font-light">additional</h6>
+   <div><h4 className="text-2xl font-bold ">Welcome to the Portal , The journey of a thousand miles begins with a single step...</h4>
+     <b>Lao Tzu ,</b>
+     <h6 className="underline decoration-sky-500 font-light">Ancient Chinese philosopher</h6>
      </div>  
     </>
   )
-    
 } 
 
 /*
