@@ -2,12 +2,12 @@ name : PR handle
 
 on: 
   pull_request:
-  branches:
+   branches:
     - main 
 
 
 jobs:
-    build:
+  build:
     runs-on: ubuntu_latest
     steps:
     - uses:  actions/checkout@v3
@@ -17,8 +17,18 @@ jobs:
       with:
           node-version: '20'
 
-    - name: Install Dependencies
+    - name: Install frontend Dependencies
+      working-directory : frontend
       run: npm install
     
-    - name: Run Build
+    - name: Install backend Dependencies
+      working-directory : backend
+      run: npm install
+
+    - name: Run frontend Build
+      working-directory : frontend
+      run: npm run build
+
+    - name: Run backend Build
+      working-directory : backend
       run: npm run build
