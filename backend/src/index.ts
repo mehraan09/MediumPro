@@ -7,6 +7,11 @@ import { findUser } from './routes/findUser'
 const app = new Hono()
 
 app.use(cors())
+app.route("/" , (c)=>{
+  return c.json({
+  message : "Backend is up!"
+  })
+})
 app.route("/api/v1/user" , userRouter)
 app.route("/api/v1/blog" , blogRouter)
 app.route("/api/v1/userfind" , findUser)
