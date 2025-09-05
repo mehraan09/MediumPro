@@ -17,7 +17,6 @@ blogRouter.use(auth)
 blogRouter.post("/" , async (c)=>{
     try {
         const body = await c.req.json();
-        console.log(body)
         const zodH = blogPost.safeParse(body);
         // authorId isnt required 
         // if(!zodH.success){ return c.json({ message: zodH.error }) }
@@ -91,7 +90,6 @@ blogRouter.get("/bulk" , async (c)=>{
 
 blogRouter.get( "/:id", async (c)=>{
     try {
-        console.log("ere")
         const id = c.req.param("id")
         const akash = new PrismaClient({
             datasourceUrl : c.env.DATABASE_URL
